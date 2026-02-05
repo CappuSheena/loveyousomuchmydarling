@@ -67,7 +67,7 @@ function loopHearts() {
     if (!heartsLooping) return;
 
     const container = document.querySelector('.hearts-container');
-    const heartEmoji = '🖕';
+    const heartEmoji = '❤️';
     const numberOfHearts = 8;
 
     for (let i = 0; i < numberOfHearts; i++) {
