@@ -1,0 +1,215 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f5d5d5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    text-align: center;
+    max-width: 600px;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+
+.subtitle-2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 80px;
+    line-height: 1.2;
+}
+
+.instruction {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 30px;
+}
+
+/* Tablet and desktop screens */
+@media (min-width: 768px) {
+    .title {
+        font-size: 3.5rem;
+    }
+
+    .subtitle,
+    .subtitle-2 {
+        font-size: 1.5rem;
+    }
+
+    .instruction {
+        font-size: 1rem;
+    }
+}
+
+.love-btn {
+    background-color: #ff6b7a;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 122, 0.3);
+}
+
+.love-btn:hover {
+    background-color: #ff5568;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 107, 122, 0.4);
+}
+
+.love-btn:active {
+    transform: scale(0.98);
+}
+
+/* Touch-friendly button sizing for mobile */
+@media (max-width: 480px) {
+    .love-btn {
+        padding: 18px 50px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (hover: none) {
+    .love-btn:hover {
+        background-color: #ff6b7a;
+        transform: scale(1);
+    }
+}
+
+/* Ensure AOS animations start from hidden state */
+[data-aos] {
+    opacity: 0;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+}
+
+/* Cost Items */
+.cost-items {
+    margin-top: 60px;
+}
+
+.cost-item {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #000;
+    margin: 15px 0;
+    opacity: 0;
+}
+
+@media (min-width: 768px) {
+    .cost-item {
+        font-size: 1.3rem;
+    }
+}
+
+.cost-item.show {
+    animation: fadeInRight 1s ease forwards;
+}
+
+.cost-item.hide {
+    animation: fadeOutLeft 0.8s ease forwards;
+}
+
+.cost-item[data-item="1"] {
+    animation-delay: 0.2s;
+}
+
+.cost-item[data-item="2"] {
+    animation-delay: 0.4s;
+}
+
+.cost-item[data-item="3"] {
+    animation-delay: 0.6s;
+}
+
+/* Hearts */
+.hearts-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.heart {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0;
+    animation: floatUp 3s ease-in-out forwards;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOutLeft {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0) translateX(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100vh) translateX(var(--drift, 0px)) scale(0.5);
+    }
+}
+
+@keyframes fadeOutDown {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+}
